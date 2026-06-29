@@ -85,8 +85,9 @@ python scripts/run_pipeline.py --config config/example_config.yaml
 python scripts/make_main_tables.py  --config config/example_config.yaml
 python scripts/make_main_figures.py --config config/example_config.yaml
 ```
-Use `config/default_config.yaml` (real study parameters) with the restricted real
-inputs, or `config/example_config.yaml` with the bundled synthetic data.
+Use `config/default_config.yaml` as a study-aligned public configuration template
+with restricted inputs that are not included in this repository, or use
+`config/example_config.yaml` with the bundled synthetic data.
 
 ## Outputs
 
