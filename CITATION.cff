@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Road-Litter Priority Pipeline"
+version: "1.0.0"
+authors:
+  - family-names: "Cheng"
+    given-names: "Tianjiao"
+    affiliation: "Environmental Research Institute, Waseda University"
+  - family-names: "Yoshidome"
+    given-names: "Daiki"
+    affiliation: "Environmental Research Institute, Waseda University"
+  - family-names: "Pandyaswargo"
+    given-names: "Andante Hadi"
+    affiliation: "Environmental Research Institute, Waseda University"
+  - family-names: "Onoda"
+    given-names: "Hiroshi"
+    affiliation: "Graduate School of Environment and Energy Engineering, Waseda University"
+license: "MIT"

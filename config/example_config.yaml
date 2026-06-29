@@ -1,0 +1,66 @@
+# =============================================================================
+# example_config.yaml
+# Configuration for the bundled, fully SYNTHETIC example. Running the pipeline
+# with this config touches no restricted data and reproduces the files in
+# examples/expected_output/.
+#
+#   python scripts/run_pipeline.py --config config/example_config.yaml
+#
+# The synthetic input uses anonymized devices (DEV_A/B/C), fictional dates
+# (year 2001) and fictional coordinates that are deliberately NOT in Aioi City,
+# Hyogo Prefecture, or the real study region. See examples/synthetic_input/.
+# =============================================================================
+
+project:
+  name: road-litter-priority-pipeline-example
+  description: Synthetic end-to-end example (no real data).
+
+random_seed: 12345
+
+crs:
+  geographic: "EPSG:4326"
+  projected: "EPSG:6673"
+
+columns:
+  point_id: pointId
+  record_date: recordDate
+  latitude: latitude
+  longitude: longitude
+  device: device_name
+  trash_count: totalTrashCount
+
+input:
+  points_path: "examples/synthetic_input/synthetic_points.csv"
+  validation_path: "examples/synthetic_input/synthetic_validation.csv"
+  qc_bbox_lat: [24.0, 46.0]
+  qc_bbox_lon: [122.0, 146.0]
+
+quality_control:
+  speed_abnormal_kmh: 120.0
+  gps_jump_dist_m: 1000.0
+  gps_jump_dt_sec: 60.0
+
+spatial:
+  grid_size_m: 100
+  dedup_radius_m: 3.0
+  effective_observation_days_min: 5
+
+periods:
+  # Synthetic study window (fictional year 2001), split into two periods.
+  full:    {start: "2001-01-01", end: "2001-03-01"}
+  period1: {start: "2001-01-01", end: "2001-01-31"}
+  period2: {start: "2001-02-01", end: "2001-03-01"}
+
+indicators: {}
+
+hotspot:
+  top_x_percent: [5, 10, 20]
+
+priority:
+  main_percentile: 80
+  sensitivity_percentiles: [70, 75, 80, 85, 90]
+
+paths:
+  outputs_dir: "examples/expected_output/outputs"
+  tables_dir: "examples/expected_output/tables"
+  figures_dir: "examples/expected_output/figures"

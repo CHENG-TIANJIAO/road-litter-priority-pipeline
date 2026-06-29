@@ -1,0 +1,32 @@
+{
+  "title": "Road-Litter Priority Pipeline: A Reproducible Workflow for Exposure-Adjusted Vehicle-Mounted Monitoring",
+  "upload_type": "software",
+  "description": "This software release provides a reproducible downstream analytical workflow for converting vehicle-mounted AI road-litter detections into exposure-adjusted spatial indicators, recurrence metrics, temporal stability assessments, and municipal management-priority classifications.\n\nThe release includes source code, configuration templates, synthetic example inputs, documentation, and unit tests only. Restricted municipal trajectory data, road images, precise georeferenced detections, original validation workbooks, municipal operational route information, and the proprietary upstream AI detection model are not included.",
+  "creators": [
+    {
+      "name": "Cheng, Tianjiao",
+      "affiliation": "Environmental Research Institute, Waseda University"
+    },
+    {
+      "name": "Yoshidome, Daiki",
+      "affiliation": "Environmental Research Institute, Waseda University"
+    },
+    {
+      "name": "Pandyaswargo, Andante Hadi",
+      "affiliation": "Environmental Research Institute, Waseda University"
+    },
+    {
+      "name": "Onoda, Hiroshi",
+      "affiliation": "Graduate School of Environment and Energy Engineering, Waseda University"
+    }
+  ],
+  "keywords": [
+    "road litter",
+    "municipal solid waste management",
+    "vehicle-mounted monitoring",
+    "spatial analysis",
+    "exposure correction",
+    "reproducible research"
+  ],
+  "license": "MIT"
+}

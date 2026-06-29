@@ -1,0 +1,8 @@
+scope,name,n_records,n_false_positive,row_fp_rate_pct,row_valid_rate_pct,object_fp_rate_pct,object_valid_rate_pct
+overall,all,942,73,7.7495,92.2505,7.9872,92.0128
+device,DEV_A,318,35,11.0063,88.9937,11.0932,88.9068
+device,DEV_B,312,21,6.7308,93.2692,6.7742,93.2258
+device,DEV_C,312,17,5.4487,94.5513,6.1321,93.8679
+fp_cause,natural_object,17,17,,,,
+fp_cause,road_marking,25,25,,,,
+fp_cause,shadow,31,31,,,,

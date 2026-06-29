@@ -1,0 +1,4 @@
+period,period_start,period_end,n_cells,n_effective_cells,sum_observation_points,sum_valid_distance_km,sum_raw_detection_rows,sum_unique_litter_events
+full,2001-01-01,2001-03-01,33,28,6360,79.593,942,34
+period1,2001-01-01,2001-01-31,33,28,3204,38.322,474,34
+period2,2001-02-01,2001-03-01,29,28,3156,41.271,468,32

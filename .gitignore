@@ -1,0 +1,41 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+env/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+
+# --- Restricted / real data (NEVER commit) ---
+# Real point-level inputs and any local real-run artifacts.
+data/
+data_raw/
+data_validation/
+*.parquet
+
+# Real-run outputs at the repo root (the SYNTHETIC example outputs under
+# examples/expected_output/ are committed on purpose and are NOT ignored).
+/outputs/
+/tables/
+/figures/
+
+# Local environment / secrets
+*.env
+.env
+secrets.*
+
+# --- Restricted-data reproducibility audit (LOCAL ONLY, never commit) ---
+local_audit_not_for_release/
+config/local_restricted_config.yaml
+
+# --- Internal pre-release review notes (kept local, not part of the public release) ---
+TO_REVIEW_BEFORE_PUBLIC_RELEASE/
+
+# Keep the synthetic example's committed outputs:
+!examples/expected_output/
+!examples/expected_output/**

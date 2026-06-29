@@ -1,0 +1,11 @@
+metric,value
+priority_HH_cells,3.0
+priority_HL_cells,2.0
+priority_LH_cells,9.0
+priority_LL_cells,11.0
+priority_non_effective_cells,8.0
+intensity_threshold_p80,1.025
+recurrence_threshold_p80,1.0
+jaccard_top5pct,1.0
+jaccard_top10pct,1.0
+jaccard_top20pct,0.6667

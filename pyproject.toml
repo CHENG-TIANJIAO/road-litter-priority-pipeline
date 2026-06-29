@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "road-litter-priority-pipeline"
+version = "1.0.0"
+description = "Downstream post-detection analytical pipeline for municipal road-litter priority indicators"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Tianjiao Cheng" },
+  { name = "Daiki Yoshidome" },
+  { name = "Andante Hadi Pandyaswargo" },
+  { name = "Hiroshi Onoda" },
+]
+keywords = ["road litter", "municipal solid waste", "vehicle-mounted AI",
+            "spatial deduplication", "recurrence", "priority classification"]
+dependencies = [
+  "numpy>=1.23",
+  "pandas>=1.5",
+  "scipy>=1.9",
+  "pyproj>=3.4",
+  "PyYAML>=6.0",
+  "matplotlib>=3.6",
+]
+
+[project.optional-dependencies]
+geo = ["geopandas>=0.12"]
+test = ["pytest>=7.0"]
+
+[project.urls]
+Repository = "https://github.com/CHENG-TIANJIAO/road-litter-priority-pipeline"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+# Note: stage modules are intentionally numbered (src/01_inventory.py, ...) and
+# are loaded by file path in scripts/run_pipeline.py and tests/conftest.py; this
+# project is run as scripts, not imported as an installed package.

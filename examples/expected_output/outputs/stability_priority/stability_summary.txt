@@ -1,0 +1,27 @@
+Stage 06 — stability & management priority
+==================================================
+Priority thresholds (p80, full-period detected effective cells):
+  intensity threshold = 1.0250
+  recurrence threshold = 1.0000
+Priority class counts (full period):
+  HH             3
+  HL             2
+  LH             9
+  LL             11
+  non_effective  8
+
+Stability (period1 vs period2), joined effective cells N = 25:
+  Spearman rho [normalized_intensity_per_km] = 0.9784 (95% CI 0.951..0.991, p=2.9675554461428274e-17)
+  Spearman rho [recurrence_ratio] = 1.0000 (95% CI nan..nan, p=0.0)
+Top-X% hotspot Jaccard overlap:
+  top-5%  Jaccard = 1.0
+  top-10%  Jaccard = 1.0
+  top-20%  Jaccard = 0.6666666666666666
+persistent=3  emerging=0  declining=0
+
+Priority percentile sensitivity:
+  percentile=70, t_intensity=1.02449190810224, t_recurrence=1.0, HH=4, HL=3, LH=8, LL=10
+  percentile=75, t_intensity=1.0246547987462202, t_recurrence=1.0, HH=3, HL=3, LH=9, LL=10
+  percentile=80, t_intensity=1.0250206573547815, t_recurrence=1.0, HH=3, HL=2, LH=9, LL=11
+  percentile=85, t_intensity=1.1986822742310095, t_recurrence=1.0, HH=2, HL=2, LH=10, LL=11
+  percentile=90, t_intensity=1.3517572630121137, t_recurrence=1.0, HH=2, HL=1, LH=10, LL=12

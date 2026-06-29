@@ -1,0 +1,11 @@
+# Core runtime dependencies for the post-detection road-litter priority pipeline.
+numpy>=1.23
+pandas>=1.5
+scipy>=1.9
+pyproj>=3.4
+PyYAML>=6.0
+matplotlib>=3.6
+
+# Optional:
+#   geopandas>=0.12   # only if you extend the code to write GeoPackages
+#   pytest>=7.0       # to run the unit tests in tests/

@@ -1,0 +1,87 @@
+# =============================================================================
+# default_config.yaml
+# Reference configuration for the post-detection road-litter priority pipeline.
+#
+# These values reproduce the analytical caliber used in the manuscript
+# "From routine municipal collection routes to road-litter management: a
+# reproducible framework for exposure-adjusted priority indicators". The
+# input paths below are PLACEHOLDERS: the restricted raw
+# point-level data are NOT distributed with this repository (see
+# docs/privacy_and_data_access.md). To run the pipeline on the bundled
+# de-identified synthetic example, use config/example_config.yaml instead.
+# =============================================================================
+
+project:
+  name: road-litter-priority-pipeline
+  description: >-
+    Downstream post-detection analytical pipeline that converts vehicle-mounted
+    AI road-litter detections into exposure-normalized, recurrence-aware
+    municipal priority indicators.
+
+# Fixed seed for any stochastic step (kept for reproducibility; the core
+# pipeline is deterministic and does not currently use randomness).
+random_seed: 20251218
+
+crs:
+  geographic: "EPSG:4326"      # WGS84 lon/lat (input)
+  projected: "EPSG:6673"       # JGD2011 / Japan Plane Rectangular CS V (metric)
+
+# Canonical PUBLIC input column names. The pipeline reads only these columns
+# from the input point table; any other columns (e.g. image URLs or capture
+# IDs in the restricted source data) are ignored and never required.
+columns:
+  point_id: pointId
+  record_date: recordDate      # parseable timestamp (local time)
+  latitude: latitude           # WGS84 degrees
+  longitude: longitude         # WGS84 degrees
+  device: device_name          # anonymized device identifier
+  trash_count: totalTrashCount # per-frame detected-object count (>=0)
+
+input:
+  # File OR directory of point-level detection records (public schema above).
+  points_path: "data/points_RESTRICTED_not_in_repo.csv"
+  # Optional manual-validation label table (public schema; see input schema doc).
+  validation_path: ""          # empty -> validation stage is skipped
+  # Geographic sanity-check bounding box. QC ONLY: rows outside the box are
+  # counted and logged, never dropped.
+  qc_bbox_lat: [24.0, 46.0]
+  qc_bbox_lon: [122.0, 146.0]
+
+quality_control:
+  # Speed-flag thresholds (one flag per row, fixed priority:
+  # first_row > dt_nonpositive > gps_jump > abnormal_high > ok).
+  speed_abnormal_kmh: 120.0    # v > 120 km/h -> abnormal_high
+  gps_jump_dist_m: 1000.0      # dd > 1000 m within ...
+  gps_jump_dt_sec: 60.0        # ... dt < 60 s -> gps_jump
+
+spatial:
+  grid_size_m: 100             # 100 m square cells, anchored at projected origin (0,0)
+  dedup_radius_m: 3.0          # 3 m seed-radius spatial deduplication
+  effective_observation_days_min: 5  # effective coverage: n_observation_days >= 5
+
+periods:
+  # Inclusive on both endpoints. These are the manuscript study periods
+  # (already public in the paper).
+  full:    {start: "2025-12-18", end: "2026-03-17"}
+  period1: {start: "2025-12-18", end: "2026-01-15"}
+  period2: {start: "2026-01-16", end: "2026-03-17"}
+
+indicators:
+  # normalized_intensity_per_km = n_unique_litter_events / valid_distance_km
+  # recurrence_ratio            = n_detection_days / n_observation_days
+  # (no tunable parameters; listed here for documentation)
+  {}
+
+hotspot:
+  top_x_percent: [5, 10, 20]   # top-X% hotspot definitions for overlap/Jaccard
+
+priority:
+  main_percentile: 80          # 80th-percentile thresholds for HH/HL/LH/LL split
+  sensitivity_percentiles: [70, 75, 80, 85, 90]
+  # Thresholds are computed from the full-period effective cells with >=1 unique
+  # event (NOT hard-coded), so they remain reproducible from the input data.
+
+paths:
+  outputs_dir: "outputs"
+  tables_dir: "tables"
+  figures_dir: "figures"
