@@ -3,6 +3,8 @@ message: "If you use this software, please cite it as below."
 type: software
 title: "Road-Litter Priority Pipeline"
 version: "1.0.0"
+doi: "10.5281/zenodo.21037127"
+repository-code: "https://github.com/CHENG-TIANJIAO/road-litter-priority-pipeline"
 authors:
   - family-names: "Cheng"
     given-names: "Tianjiao"

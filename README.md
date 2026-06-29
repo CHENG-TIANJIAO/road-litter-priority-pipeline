@@ -1,5 +1,7 @@
 # Road-Litter Priority Pipeline
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21037126.svg)](https://doi.org/10.5281/zenodo.21037126)
+
 A reproducible workflow for exposure-adjusted vehicle-mounted road-litter
 monitoring and municipal priority screening.
 
@@ -162,7 +164,8 @@ written permission from Aioi City and Pirika, Inc. See
 Please cite this software using the metadata in [`CITATION.cff`](CITATION.cff).
 The associated manuscript is listed above under **Associated manuscript**.
 
-A Zenodo DOI will be added after the first GitHub release is archived.
+Archived on Zenodo. Cite this version: https://doi.org/10.5281/zenodo.21037127
+(all versions: https://doi.org/10.5281/zenodo.21037126).
 
 ## License
 
